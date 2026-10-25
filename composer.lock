@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0df7129cfcee0bf740d8614cf8165be",
+    "content-hash": "661e1b28ffd4549207c1d661b86d57c5",
     "packages": [
         {
             "name": "cakephp/authentication",
@@ -260,30 +260,29 @@
         },
         {
             "name": "cakephp/migrations",
-            "version": "4.9.7",
+            "version": "5.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/migrations.git",
-                "reference": "7745bb8489b1aaaa17811db9ca4f3a1f153d7d98"
+                "reference": "56ec71d99c525a01fc5c9ef51d90cc69a70291d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/migrations/zipball/7745bb8489b1aaaa17811db9ca4f3a1f153d7d98",
-                "reference": "7745bb8489b1aaaa17811db9ca4f3a1f153d7d98",
+                "url": "https://api.github.com/repos/cakephp/migrations/zipball/56ec71d99c525a01fc5c9ef51d90cc69a70291d7",
+                "reference": "56ec71d99c525a01fc5c9ef51d90cc69a70291d7",
                 "shasum": ""
             },
             "require": {
-                "cakephp/cache": "^5.2.9",
-                "cakephp/database": "^5.2.9",
-                "cakephp/orm": "^5.2.9",
-                "php": ">=8.1",
-                "robmorgan/phinx": "0.16.10"
+                "cakephp/cache": "^5.3.0",
+                "cakephp/database": "^5.3.2",
+                "cakephp/orm": "^5.3.0",
+                "php": ">=8.2"
             },
             "require-dev": {
                 "cakephp/bake": "^3.3",
-                "cakephp/cakephp": "^5.2.9",
+                "cakephp/cakephp": "^5.3.0",
                 "cakephp/cakephp-codesniffer": "^5.0",
-                "phpunit/phpunit": "^10.5.5 || ^11.1.3 || ^12.2.4"
+                "phpunit/phpunit": "^11.5.3 || ^12.1.3 || ^13.0"
             },
             "suggest": {
                 "cakephp/bake": "If you want to generate migrations.",
@@ -305,7 +304,7 @@
                     "homepage": "https://github.com/cakephp/migrations/graphs/contributors"
                 }
             ],
-            "description": "Database Migration plugin for CakePHP based on Phinx",
+            "description": "Database Migration plugin for CakePHP",
             "homepage": "https://github.com/cakephp/migrations",
             "keywords": [
                 "cakephp",
@@ -318,7 +317,7 @@
                 "issues": "https://github.com/cakephp/migrations/issues",
                 "source": "https://github.com/cakephp/migrations"
             },
-            "time": "2026-04-30T19:46:00+00:00"
+            "time": "2026-07-29T15:36:11+00:00"
         },
         {
             "name": "cakephp/plugin-installer",

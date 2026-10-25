@@ -22,6 +22,7 @@ use League\CommonMark\GithubFlavoredMarkdownConverter;
  *
  * @property \App\Model\Entity\Blog $blog
  * @property \App\Model\Entity\Comment[] $comments
+ * @property \App\Model\Entity\Like[] $likes
  */
 class Post extends Entity
 {
@@ -46,6 +47,7 @@ class Post extends Entity
         'pinned' => true,
         'comments_enabled' => true,
         'comments' => true,
+        'likes' => true,
     ];
 
     protected array $_virtual = ['body_html'];

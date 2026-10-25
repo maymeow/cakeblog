@@ -16,11 +16,12 @@ class CreateLikes extends BaseMigration
     public function change(): void
     {
         $table = $this->table('likes');
-        $table->addColumn('ipAddressHash', 'text', [
+        $table->addColumn('post_id', 'integer', [
             'default' => null,
+            'limit' => 11,
             'null' => false,
         ]);
-        $table->addColumn('post_id', 'string', [
+        $table->addColumn('ipAddressHash', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,
@@ -32,6 +33,14 @@ class CreateLikes extends BaseMigration
         $table->addColumn('modified', 'datetime', [
             'default' => null,
             'null' => false,
+        ]);
+        $table->addIndex(['post_id', 'ipAddressHash'], [
+            'name' => 'UNIQUE_LIKES_POST_HASH',
+            'unique' => true,
+        ]);
+        $table->addForeignKey('post_id', 'posts', 'id', [
+            'delete' => 'CASCADE',
+            'update' => 'CASCADE',
         ]);
         $table->create();
     }
