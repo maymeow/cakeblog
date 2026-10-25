@@ -47,13 +47,17 @@ class PostsController extends AppController
             });
         }
 
-        // Add approved comment count
+        // Add approved comment count and total like count
         $query->select($this->Posts)
             ->select(['comment_count' => $this->Posts->Comments->find()
                 ->where(['Comments.post_id = Posts.id', 'Comments.is_approved' => true])
-                ->select($this->Posts->Comments->find()->func()->count('Comments.id'))
+                ->select($this->Posts->Comments->find()->func()->count('Comments.id')),
+            ])
+            ->select(['like_count' => $this->Posts->Likes->find()
+                ->where(['Likes.post_id = Posts.id'])
+                ->select($this->Posts->Likes->find()->func()->count('Likes.id')),
             ]);
-        
+
         $posts = $this->paginate($query);
 
         $this->set(compact('posts'));
@@ -78,7 +82,11 @@ class PostsController extends AppController
 
         $comment = $this->Posts->Comments->newEmptyEntity();
 
-        $this->set(compact('post', 'comment'));
+        $likeHash = $this->Posts->Likes->hashIp($this->request->clientIp());
+        $likeCount = $this->Posts->Likes->countForPost((int)$post->id);
+        $liked = $this->Posts->Likes->hasLiked((int)$post->id, $likeHash);
+
+        $this->set(compact('post', 'comment', 'likeCount', 'liked'));
     }
 
     /**

@@ -3,12 +3,30 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Post $post
  * @var \App\Model\Entity\Comment $comment
+ * @var int $likeCount
+ * @var bool $liked
  */
 ?>
+<?= $this->Html->script('likes', ['block' => 'script', 'defer' => true]) ?>
 <div class="row">
     <div class="column column-80">
         <div class="posts view content">
             <?= $post->body_html ?>
+        </div>
+
+        <div class="post-likes">
+            <?= $this->Form->create(null, [
+                'url' => ['controller' => 'Likes', 'action' => 'toggle', $post->id],
+                'class' => 'like-form',
+            ]) ?>
+            <button type="submit" class="like-button<?= $liked ? ' is-liked' : '' ?>"
+                data-like-title="<?= h(__('Like this post')) ?>"
+                data-unlike-title="<?= h(__('Unlike this post')) ?>"
+                title="<?= $liked ? h(__('Unlike this post')) : h(__('Like this post')) ?>">
+                <span class="like-icon"><?= $liked ? '🧡' : '🤍' ?></span>
+                <span class="like-count" data-like-count><?= (int)$likeCount ?></span>
+            </button>
+            <?= $this->Form->end() ?>
         </div>
 
         <?php if (!empty($post->comments)): ?>

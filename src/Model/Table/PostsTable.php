@@ -14,6 +14,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\BlogsTable&\Cake\ORM\Association\BelongsTo $Blogs
  * @property \App\Model\Table\CommentsTable&\Cake\ORM\Association\HasMany $Comments
+ * @property \App\Model\Table\LikesTable&\Cake\ORM\Association\HasMany $Likes
  *
  * @method \App\Model\Entity\Post newEmptyEntity()
  * @method \App\Model\Entity\Post newEntity(array $data, array $options = [])
@@ -54,6 +55,10 @@ class PostsTable extends Table
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Comments', [
+            'foreignKey' => 'post_id',
+            'dependent' => true,
+        ]);
+        $this->hasMany('Likes', [
             'foreignKey' => 'post_id',
             'dependent' => true,
         ]);

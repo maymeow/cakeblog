@@ -25,6 +25,7 @@ $homepageType = $this->Blog->getHomepageType();
                         <?php if (isset($post->comment_count) && $post->comment_count > 0): ?>
                             <span class="comment-count" title="<?= __('Comments') ?>">💬 <?= (int)$post->comment_count ?></span>
                         <?php endif; ?>
+                        <span class="like-count" title="<?= __('Likes') ?>">🧡 <?= (int)($post->like_count ?? 0) ?></span>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -38,6 +39,7 @@ $homepageType = $this->Blog->getHomepageType();
                         <?php if (isset($post->comment_count) && $post->comment_count > 0): ?>
                             <span class="comment-count" title="<?= __('Comments') ?>">💬 <?= (int)$post->comment_count ?></span>
                         <?php endif; ?>
+                        <span class="like-count" title="<?= __('Likes') ?>">🧡 <?= (int)($post->like_count ?? 0) ?></span>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -50,6 +52,7 @@ $homepageType = $this->Blog->getHomepageType();
                             <?php if (isset($post->comment_count) && $post->comment_count > 0): ?>
                                 <span class="comment-count" title="<?= __('Comments') ?>">💬 <?= (int)$post->comment_count ?></span>
                             <?php endif; ?>
+                            <span class="like-count" title="<?= __('Likes') ?>">🧡 <?= (int)($post->like_count ?? 0) ?></span>
                         </h3>
                         <div class="excerpt" style="margin-top: 0.5rem;">
                             <?= \Cake\Utility\Text::truncate(strip_tags($post->body_html), 200, ['exact' => false, 'html' => false]) ?>
@@ -67,6 +70,7 @@ $homepageType = $this->Blog->getHomepageType();
                             <?php if (isset($post->comment_count) && $post->comment_count > 0): ?>
                                 <span class="comment-count" title="<?= __('Comments') ?>">💬 <?= (int)$post->comment_count ?></span>
                             <?php endif; ?>
+                            <span class="like-count" title="<?= __('Likes') ?>">🧡 <?= (int)($post->like_count ?? 0) ?></span>
                         </h2>
                         <div class="body" style="margin-top: 1rem;">
                             <?= $post->body_html ?>
