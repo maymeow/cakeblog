@@ -13,7 +13,7 @@
         "league/commonmark": "^2.8",
         "maymeow/license": "dev-main",
         "mobiledetect/mobiledetectlib": "^4.8.03",
-        "robmorgan/phinx": "0.16.10"
+        "robmorgan/phinx": "0.16.12"
     },
     "require-dev": {
         "cakephp/bake": "^3.0.0",
